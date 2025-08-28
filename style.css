@@ -1,0 +1,1220 @@
+
+/* Google Fonts Montserrat import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+
+/* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #171a20;
+  background: #fff;
+}
+
+/* ===== Header ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header__inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.header__left .logo {
+  height: 18px;
+  cursor: pointer;
+}
+
+/* ===== Navigation ===== */
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav__link {
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #171a20;
+  padding: 20px 0;
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: #000;
+}
+
+/* ===== Mega Menu ===== */
+.mega {
+  position: absolute;
+  top: 100%; /* below header */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 40px 60px;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Hover to open mega menu */
+.nav_item:hover .mega {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mega Menu Inner Layout */
+.mega__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* ===== Models Grid ===== */
+.models {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  flex: 3;
+}
+
+.models--energy,
+.models--charging,
+.models--shop {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.model {
+  text-align: center;
+}
+
+.model img {
+  width: 160px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.model img:hover {
+  transform: scale(1.05);
+}
+
+.model h4 {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.model__links {
+  margin-top: 5px;
+}
+
+.model__links a {
+  font-size: 13px;
+  margin: 0 5px;
+  color: gray;
+  text-decoration: underline;
+}
+
+.model__links a:hover {
+  color:black;
+  text-decoration: underline;
+}
+
+/* ===== Side Links ===== */
+.side {
+  flex: 1;
+}
+
+.side__list {
+  list-style: none;
+}
+
+.side__list li {
+  margin-bottom: 8px;
+}
+
+.side__list a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #171a20;
+  transition: color 0.2s;
+}
+
+.side__list a:hover {
+  color: #3e6ae1;
+}
+
+/* ===== Discover Special Layout ===== */
+.discover_inner {
+  display: flex;
+  gap: 40px;
+}
+
+.discover-column h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.discover-column ul {
+  list-style: none;
+}
+
+.discover-column li {
+  margin-bottom: 6px;
+}
+
+.discover-column a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #171a20;
+}
+
+.discover-column a:hover {
+  color: #3e6ae1;
+}
+
+/* ===== Right Icons ===== */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 18px;
+  color: #171a20;
+  cursor: pointer;
+}
+
+.header__right i:hover {
+  color: #3e6ae1;
+}
+
+
+
+/* ====== Slider ====== */
+.promo-sections {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* Each slide */
+ .promo {
+  position: absolute;
+  bottom: 20px;
+  padding-bottom: 10px;
+  left: 100%; /* by default hidden to the right */
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+  background: #f5f5f5; /* fallback background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: 0;
+  background-size: cover; 
+  background-position: center;
+}
+
+
+.promo.active {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+
+.promo.left {
+  background-image: url("https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-FTC-Desktop.png");
+}
+ .promo.right {
+  background-image: url("https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Model-3-Desktop-US-July.png");
+}
+
+
+/* Content alignment */
+.content {
+  text-align: center;
+  margin-top: 180px;
+  padding-bottom: 70px;
+}
+
+
+.btn-container {
+  display: flex;              /* row me layega */
+  justify-content: center;    /* center align */
+  gap: 15px;                  /* dono buttons ke beech spacing */
+  margin-top: 20px;
+}
+
+ .promo-sections .content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color:#eee;
+ text-align: center;
+}
+
+.promo-sections .content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+}
+
+.content button {
+  padding: 15px 50px;
+  margin: 5px 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 200px;
+  height: 40px;
+  margin-right: 0;
+}
+
+.content button:hover {
+  background: #1455d7;
+}
+
+/* NAVIGATION ARROWS */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  user-select: none;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* DOTS */
+.dots.top-dots {
+  position:absolute;
+  text-align: center;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 9999;
+}
+
+.dots.top-dots .dot {
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: rgba(210, 199, 199, 0.901);
+  cursor: pointer;
+}
+
+.dots.top-dots .dot.active {
+  background-color: #fff;
+}
+
+
+
+
+
+/* ===== Section 2 ===== */
+
+
+.section-2 {
+  width: 100%;
+  overflow-x: hidden; /* Scrollbar remove */
+  overflow-y: hidden;
+  display: flex;
+  position: relative;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+
+.section-2 .slides-wrapper {
+  display: flex;
+  gap:20px;
+  scroll-snap-type: x mandatory; /* Smooth snapping */
+  overflow-x: auto;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.section-2 .slide {
+  flex: 0 0 70%; /* Each slide width */
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  position: relative;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Content at bottom */
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Optional hover effect */
+.section-2 .slide:hover {
+  transform: scale(1.02);
+}
+
+/* Slide headings and paragraph */
+.section-2 .slide h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+
+/* Cybertruck logo image */
+.section-2 img.white {
+  width: 150px;            /* image chhoti kare */
+  height: auto;            /* aspect ratio maintain */
+  display: block;
+  margin-bottom: 15px;     /* paragraph ke liye gap */
+}
+
+.section-2 .slide p {
+  font-size: 12px;
+  margin: 0 0 15px;
+  max-width: 400px;
+  font-weight: bold;
+}
+
+/* Buttons inside slide */
+.section-2 .slide .buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Blue button */
+.section-2 .btn-blue {
+  background-color: #0072e3;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.section-2 .btn-blue:hover {
+  background-color: #005bb5;
+}
+
+/* White button */
+.section-2 .btn-white {
+  background-color: #fff;
+  border: none;
+  color: #171a20;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.section-2 .btn-white:hover {
+  background-color: #e5e5e5;
+}
+
+
+.label {
+  position: absolute; 
+  display: inline-block;     
+  top: 20px;               /* slide ke top se distance */
+  left: 20px;              /* slide ke left se distance */
+  color: #fff;             /* white text */
+  padding: 5px 12px;       /* thodi spacing around text */
+  font-size: 0.9rem;       /* text size */
+  font-weight: 600;        /* thoda bold */
+  z-index: 10;             /* text ko slide content ke upar dikhaye */
+}
+
+
+/* ===== Dots Styling ===== */
+.section-2 .dots {
+  position: absolute;
+  bottom: -20px;         /* slides ke thoda upar */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;            /* dots ke beech ka gap */
+  z-index: 100;
+}
+
+.section-2 .dots .dot {
+  width: 12px;
+  height: 12px;
+  background-color: gray; 
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-2 .dots .dot:hover {
+  background-color: #060505;
+}
+
+
+
+/* Scrollbar removal for all browsers */
+.section-2 .slides-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.section-2 .slides-wrapper {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .section-2 .slide {
+    flex: 0 0 95%;
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-2 .slide {
+    flex: 0 0 100%;
+    height: 50vh;
+  }
+
+  .section-2 .slide h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-2 .slide p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* ================================
+   Section 3 CSS (Cards Styling)
+   ============================== */
+   section.section-3 {
+    display: flex;
+    flex-wrap: wrap;         /* responsive ke liye */
+    gap: 20px;
+    padding: 110px 80px;     /* Tesla-style spacing */
+  }
+  
+  .section-3 .card {
+    background: #f5f5f5;
+    border-radius: 10px;
+    flex: 1 1 calc(50% - 10px); /* 2 cards side by side */
+    display: flex;
+    flex-direction: row-reverse; /* 🔥 image right, text left */
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    gap: 20px;
+    min-height: 120px;            /* vertical kam */
+    max-height: 190px;            /* optional limit */
+    margin-top: -80px;
+  }
+  
+  .section-3 .card .image { 
+    flex: 1;
+     display: flex; 
+     justify-content: center;
+     }
+
+     .section-3 .card .image img { 
+      max-width: 150px;
+      height: auto;
+      border-radius: 8px; 
+    }
+  
+  
+  .section-3 .card .text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .section-3 .card .text h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .section-3 .card .text p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .section-3 .card .text button {
+    background: #fff;          /* white background */
+    color: #000;               /* black text */
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;              /* 🔥 border remove */
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 12px;   /* 🔥 button neeche shift */
+    font-size: 15px;
+  }
+  
+  .section-3 .card .text button:hover {
+    background: #eaeaea;       /* hover effect */
+    color: #000;               /* text black hi rahe */
+  }
+
+
+
+  
+/* ================================
+   Section 4 CSS (Section Layout)
+   ============================== */
+
+/* ====== Section 4 Styles ====== */
+section.section-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 24px; 
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: -100px;
+}
+
+/* ====== Video Container ====== */
+section.section-4 .video-container {
+  flex: 1 1 50%;
+  position: relative;
+  border-radius: 16px;
+  min-width: 500px;
+  height: 600px; /* Adjust height as needed */
+  padding-top: 12px;
+}
+
+section.section-4 .video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ====== Image Container ====== */
+section.section-4 .image-container {
+  flex: 1 1 30%;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 400px;
+  height: 600px; /* Adjust height as needed */
+  padding-top: 12px;
+}
+
+section.section-4 .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ====== Overlay Text & Buttons ====== */
+section.section-4 .overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: white;
+}
+
+section.section-4 .overlay h1 {
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* ====== Buttons ====== */
+section.section-4 .buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+section.section-4 .buttons button {
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Blue Button */
+section.section-4 .buttons .blue-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+section.section-4 .buttons .blue-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* White Button */
+section.section-4 .buttons .white-btn {
+  background-color: white;
+  color: black;
+}
+
+section.section-4 .buttons .white-btn:hover {
+  background-color: #eaeaea;
+}
+
+/* ====== Responsive Heading Sizes ====== */
+@media (min-width: 640px) {
+  section.section-4 .overlay h1 {
+      font-size: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  section.section-4 .overlay h1 {
+      font-size: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section.section-4 .overlay h1 {
+      font-size: 36px;
+  }
+}
+
+/* ====== Responsive Flex Layout ====== */
+@media (max-width: 1024px) {
+  section.section-4 {
+      flex-direction: column;
+  }
+
+  section.section-4 .video-container,
+  section.section-4 .image-container {
+      flex: 1 1 100%;
+      height: 300px; /* Smaller height on mobile */
+  }
+}
+
+
+/* ================================
+   Section 5 CSS (Style)
+   ============================== */
+
+
+   /* ====== Section 5 Styles ====== */
+.section-5 {
+  width: 100%;
+  height: 500px;          /* Section ki fixed height */
+  position: relative;     /* overlay elements ke liye relative */
+  padding: 24px;          /* inner spacing */
+  box-sizing: border-box;
+}
+
+/* ====== Google Map ====== */
+.section-5 iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;   /* rounded corners */
+}
+
+/* ====== Bottom Left Button ====== */
+.find-me-btn {
+  position: absolute;
+  bottom: 96px;          
+  left: 32px;           
+  display: flex;
+  align-items: center;
+  gap: 8px;             
+  background-color: white;
+  color: black;
+  padding: 8px 16px;     
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 14px;       
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.find-me-btn:hover {
+  background-color: #e5e7eb; 
+}
+
+/* ====== Bottom Right Location icon ====== */
+.location-icon {
+  position: absolute;
+  bottom: 136px;         
+  right: 40px;           
+  background-color: white;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.location-icon:hover {
+  background-color: #e5e7eb;
+}
+
+/* ====== Icon Styling ====== */
+.find-me-btn i,
+.location-icon i {
+  font-style: normal;  
+}
+
+
+
+/* ===== Section 6 Styles ===== */
+.section-6 {
+  padding: 48px 20px;
+  border-top: 1px solid #eee;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+.section-6 .container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .section-6 .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}
+
+/* Left Side */
+.section-6 .left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.section-6 .title {
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.section-6 .subtitle {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 20px;
+}
+
+/* Buttons */
+.section-6 .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-6 .btn {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.06s ease;
+}
+
+.section-6 .btn:active {
+  transform: translateY(1px);
+}
+
+.section-6 .btn-dark {
+  background: #000;
+  color: #fff;
+}
+
+.section-6 .btn-dark:hover {
+  background: #1e1e1e;
+}
+
+.section-6 .btn-light {
+  background: #f5f5f5;
+  color: #000;
+}
+
+.section-6 .btn-light:hover {
+  background: #e9e9e9;
+}
+
+/* Right Side */
+.section-6 .right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-6 .stats {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section-6 .stat {
+  min-width: 200px;
+  padding: 8px 4px;
+}
+
+.section-6 .stat .value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.section-6 .stat .stat-label {
+  display:block;
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #110e0e;
+  white-space: nowrap;
+  visibility: visible !important; 
+}
+
+/* Icons */
+.section-6 .stat i.fa-bolt {
+  color: #e11d48;
+}
+
+.section-6 .stat i.fa-plug {
+  color: #777;
+}
+
+
+
+
+/* ===== Section 7 ===== */
+
+
+.section-7 {
+  width: 100%;
+  overflow-x: hidden; /* Scrollbar remove */
+  overflow-y: hidden;
+  display: flex;
+  position: relative;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+
+.section-7 .slides-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 20px; /* Space between slides */
+  scroll-snap-type: x mandatory; /* Smooth snapping */
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.section-7 .slide {
+  flex: 0 0 70%; /* Each slide width */
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  position: relative;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Content at bottom */
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+/* Optional hover effect */
+.section-7 .slide:hover {
+  transform: scale(1.02);
+}
+
+/* Slide headings and paragraph */
+.section-7 .slide h2 {
+  font-size: 2rem;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.section-7 .slide p {
+  font-size: 1rem;
+  margin: 0 0 15px;
+  max-width: 400px;
+}
+
+/* Buttons inside slide */
+.section-7 .slide .buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Blue button */
+.section-7 .btn-blue {
+  background-color: #0072e3;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.section-7 .btn-blue:hover {
+  background-color: #005bb5;
+}
+
+/* White button */
+.section-7 .btn-white {
+  background-color: #fff;
+  border: none;
+  color: #171a20;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.section-7 .btn-white:hover {
+  background-color: #e5e5e5;
+}
+
+
+/* ===== Dots Styling ===== */
+.section-7 .dots {
+  position: absolute;
+  bottom: -20px;         /* slides ke thoda upar */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;            /* dots ke beech ka gap */
+  z-index: 100;
+}
+
+.section-7 .dots .dot {
+  width: 12px;
+  height: 12px;
+  background-color: gray; 
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-7 .dots .dot:hover {
+  background-color: #060505;
+}
+
+
+
+/* Scrollbar removal for all browsers */
+.section-7 .slides-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.section-7 .slides-wrapper {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .section-7 .slide {
+    flex: 0 0 95%;
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-7 .slide {
+    flex: 0 0 100%;
+    height: 50vh;
+  }
+
+  .section-7 .slide h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-7 .slide p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+/* ===== Section 8 ===== */
+section.section-8 {
+  background: white;         /* halka grey background */
+  padding: 20px 40px;          /* upar-niche 20px, left-right 40px */
+  margin: 0;                   /* koi margin nahi */
+}
+
+section.section-8 .content {
+  max-width: 1000px;           /* content ko limit karna */
+  margin: 0 auto;               /* center align */
+  padding-top:40px;            
+}
+
+section.section-8 p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+section.section-8 .underline {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #030304;
+}
+
+
+
+
+/* ===== Footer Styles ===== */
+footer {
+  background-color: #fff;
+  padding: 20px 15px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #555;
+  padding-top: 30px;
+  text-align: center;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Help Bar */
+.help-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Help Bar Buttons */
+.help-bar button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.help-bar button:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Ask a Question Quote */
+.help-bar .quote {
+  color: #777;
+  font-size: 11px;
+  font-style: italic;
+  display: none;
+}
+
+/* Show quote only on larger screens */
+@media (min-width: 768px) {
+  .help-bar .quote {
+    display: inline;
+}
+}
